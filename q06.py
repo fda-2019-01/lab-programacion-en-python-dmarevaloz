@@ -13,3 +13,15 @@
 ## iii,2,7
 ## jjj,2,5
 ##
+mail=open('data.csv','r').readlines()
+mail=[row.split('\t') for row in mail]
+b=[row[4].split(',') for row in mail]
+n=','.join([row[4] for row in mail]).split(',')
+n=[row.replace('\n','').split(':') for row in n]
+from itertools import groupby
+from operator import itemgetter
+for key, group in groupby (sorted(n, key=itemgetter(0)), itemgetter(0)):
+  g=list(group)
+  max_g=max(int(x[1]) for x in g)
+  min_g=min(int(x[1]) for x in g)
+  print(f'{key},{min_g},{max_g}')
