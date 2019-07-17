@@ -17,3 +17,14 @@
 ## ('9', ['A', 'B', 'C', 'E'])
 ##
 ##
+mail=open('data.csv','r').readlines()
+mail=[row.split('\t') for row in mail]
+mail=[[row[1], row[0]] for row in mail]
+a=dict()
+for row in mail: 
+  if row[0] not in a.keys():
+    a[row[0]]=[]
+  a[row[0]]=a[row[0]]+list(row[1])
+for i in sorted(a.keys()):
+  b=(i,sorted(a[i]))
+  print(b)
