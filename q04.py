@@ -14,3 +14,8 @@
 ## 11,2
 ## 12,3
 ##
+mail=open('data.csv','r').readlines()
+mail = [row.split('-') for row in mail]
+mod=([row[1] for row in mail])
+for i in sorted(set(mod)):
+  print(f"{i},{mod.count(i)}")
