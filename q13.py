@@ -10,3 +10,13 @@
 ## E,11
 ## E,16
 ##
+mail=open('data.csv','r').readlines()
+mail=[row.replace('\n','').split('\t') for row in mail]
+mail=[[row[0],row[4].split(',')] for row in mail]
+for row in mail:
+  b=0
+  for k in range(len(row[1])):
+    for i in range(10):  
+      if str(i) in row[1][k]: 
+         b+=i
+  print(f'{row[0]},{b}')
