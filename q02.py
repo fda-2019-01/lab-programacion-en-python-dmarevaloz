@@ -8,3 +8,7 @@
 ## D,6
 ## E,14
 ##
+mod=([row[0] for row in mail])
+for i in sorted(set(mod)): 
+  z=mod.count(i)
+  print(f"{i},{z}")
